@@ -25,7 +25,7 @@ from linebot import (
 
 class TestLineBotApi(unittest.TestCase):
     def setUp(self):
-        self.tested = LineBotApi('channel_secret')
+        self.tested = LineBotApi('8342c1c90854551143536303af81bf11')
 
     @responses.activate
     def test_get_profile(self):
@@ -33,8 +33,8 @@ class TestLineBotApi(unittest.TestCase):
             responses.GET,
             LineBotApi.DEFAULT_API_ENDPOINT + '/v2/bot/profile/user_id',
             json={
-                "displayName": "LINE taro",
-                "userId": "Uxxxxxxxxxxxxxx...",
+                "displayName": "LINE Legion",
+                "userId": "U3d2c8be89a768cb82ac9b36d3bc0896e",
                 "pictureUrl": "http://obs.line-apps.com/...",
                 "statusMessage": "Hello, LINE!"
             },
@@ -48,7 +48,7 @@ class TestLineBotApi(unittest.TestCase):
         self.assertEqual(
             request.url,
             LineBotApi.DEFAULT_API_ENDPOINT + '/v2/bot/profile/user_id')
-        self.assertEqual(profile.display_name, 'LINE taro')
+        self.assertEqual(profile.display_name, 'LINE Legion')
         self.assertEqual(profile.user_id, 'Uxxxxxxxxxxxxxx...')
         self.assertEqual(profile.picture_url, 'http://obs.line-apps.com/...')
         self.assertEqual(profile.status_message, 'Hello, LINE!')
